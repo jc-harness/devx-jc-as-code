@@ -4,37 +4,27 @@ pipeline:
   projectIdentifier: devx_jc
   orgIdentifier: sandbox
   tags: {}
-  properties:
-    ci:
-      codebase:
-        connectorRef: JC_Github_connector
-        repoName: simple-pov-app
-        build: <+input>
   stages:
     - stage:
-        name: Build and Test
-        identifier: Build_and_Test
+        name: Example
+        identifier: Example
         description: ""
-        type: CI
+        type: Custom
         spec:
-          cloneCodebase: true
-          caching:
-            enabled: true
-            override: false
-          buildIntelligence:
-            enabled: true
-          platform:
-            os: Linux
-            arch: Amd64
-          runtime:
-            type: Cloud
-            spec: {}
           execution:
             steps:
               - step:
-                  type: Run
-                  name: Run
-                  identifier: Run
+                  type: ShellScript
+                  name: ShellScript
+                  identifier: ShellScript
                   spec:
-                    shell: Sh
-                    command: echo "hello world"
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo "helo world"
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}
