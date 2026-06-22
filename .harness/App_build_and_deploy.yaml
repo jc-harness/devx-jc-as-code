@@ -13,18 +13,33 @@ pipeline:
         spec:
           execution:
             steps:
-              - step:
-                  type: ShellScript
-                  name: ShellScript
-                  identifier: ShellScript
-                  spec:
-                    shell: Bash
-                    executionTarget: {}
-                    source:
-                      type: Inline
+              - parallel:
+                  - step:
+                      type: ShellScript
+                      name: ShellScript
+                      identifier: ShellScript
                       spec:
-                        script: echo "helo world"
-                    environmentVariables: []
-                    outputVariables: []
-                  timeout: 10m
+                        shell: Bash
+                        executionTarget: {}
+                        source:
+                          type: Inline
+                          spec:
+                            script: echo "helo world"
+                        environmentVariables: []
+                        outputVariables: []
+                      timeout: 10m
+                  - step:
+                      type: ShellScript
+                      name: ShellScript_2
+                      identifier: ShellScript_2
+                      spec:
+                        shell: Bash
+                        executionTarget: {}
+                        source:
+                          type: Inline
+                          spec:
+                            script: echo "this is version 2"
+                        environmentVariables: []
+                        outputVariables: []
+                      timeout: 10m
         tags: {}
