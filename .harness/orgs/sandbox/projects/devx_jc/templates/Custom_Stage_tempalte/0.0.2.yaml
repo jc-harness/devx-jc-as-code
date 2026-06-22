@@ -1,0 +1,33 @@
+template:
+  name: Custom Stage tempalte
+  type: Stage
+  projectIdentifier: devx_jc
+  orgIdentifier: sandbox
+  spec:
+    type: Custom
+    spec:
+      execution:
+        steps:
+          - step:
+              name: ShellScript
+              identifier: ShellScript
+              template:
+                templateRef: Shell1_template
+                versionLabel: 0.0.1
+                gitBranch: main
+          - step:
+              type: ShellScript
+              name: ShellScript_template_2
+              identifier: ShellScript_template_2
+              spec:
+                shell: Bash
+                executionTarget: {}
+                source:
+                  type: Inline
+                  spec:
+                    script: echo "template 2"
+                environmentVariables: []
+                outputVariables: []
+              timeout: 10m
+  identifier: Custom_Stage_tempalte
+  versionLabel: 0.0.2
