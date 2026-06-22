@@ -1,0 +1,19 @@
+template:
+  name: Custom Stage tempalte
+  type: Stage
+  projectIdentifier: devx_jc
+  orgIdentifier: sandbox
+  spec:
+    type: Custom
+    spec:
+      execution:
+        steps:
+          - step:
+              name: ShellScript
+              identifier: ShellScript
+              template:
+                templateRef: Shell1_template
+                versionLabel: 0.0.1
+                gitBranch: main
+  identifier: Custom_Stage_tempalte
+  versionLabel: 0.0.1
