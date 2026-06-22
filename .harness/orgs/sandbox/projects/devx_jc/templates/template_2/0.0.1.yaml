@@ -1,0 +1,20 @@
+template:
+  name: template 2
+  type: Step
+  projectIdentifier: devx_jc
+  orgIdentifier: sandbox
+  spec:
+    type: ShellScript
+    spec:
+      shell: Bash
+      executionTarget: {}
+      source:
+        type: Inline
+        spec:
+          script: echo "helo world"
+      environmentVariables: []
+      outputVariables: []
+      delegateSelectors: []
+    timeout: 10m
+  identifier: template_2
+  versionLabel: 0.0.1
